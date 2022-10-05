@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import "./App.css";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -11,10 +11,12 @@ function App() {
       <BrowserRouter>
         <nav>
           <h1>My Blog</h1>
-          <Link to="/">Home</Link>
-          <Link to="/posts">Posts</Link>
-          <Link to="/about">About Our</Link>
-          <Link to="/contact">Contact</Link>
+          <NavLink end to="/">
+            Home
+          </NavLink>
+          <NavLink to="/posts">Posts</NavLink>
+          <NavLink to="/about">About Our</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
         </nav>
 
         <Routes>
