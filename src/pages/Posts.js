@@ -1,9 +1,29 @@
-import React from "react";
+import useFetch from "../hooks/useFetch";
+
+import styles from "./Posts.module.css";
 
 export default function Posts() {
+  const {
+    data: articles,
+    isPending,
+    error,
+  } = useFetch("http://localhost:3005/articles");
+
   return (
-    <>
+    <div className={styles.post}>
       <h2>Posts</h2>
+      {isPending && <div>Loading Posts...</div>}
+      {error && <div>{error}</div>}
+      {articles &&
+        articles.map((article) => (
+          <div key={article.id} className={styles.card}>
+            <h3>{article.title}</h3>
+            <p>
+              <span className={styles.author}>{article.author}</span>
+            </p>
+          </div>
+        ))}
+
       <p>
         <span>
           Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -11,19 +31,7 @@ export default function Posts() {
           numquam enim debitis repellat consequuntur velit. Nostrum nobis rem
           minus, amet ullam aspernatur sint placeat.
         </span>
-        <span>
-          Quidem cupiditate atque quae harum sunt nobis explicabo repellat
-          quibusdam velit, veritatis dolore doloremque cum architecto molestiae
-          adipisci ea perferendis voluptas assumenda. Natus ad quas asperiores
-          distinctio rerum. Dolorum, odio?
-        </span>
-        <span>
-          Nulla distinctio velit saepe quasi soluta est sequi asperiores
-          sapiente totam dolore delectus excepturi quis, illo voluptas ipsum
-          voluptates enim illum. Inventore necessitatibus labore optio fugit,
-          temporibus neque minima maiores?
-        </span>
       </p>
-    </>
+    </div>
   );
 }

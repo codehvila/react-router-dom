@@ -1,0 +1,11 @@
+.post .card {
+  padding: calc(1rem / 16 * 20);
+  border: 1px solid #e4e4e4;
+  border-radius: calc(1rem / 16 * 4);
+  box-shadow: calc(1rem / 16 * 4) calc(1rem / 16 * 4) calc(1rem / 16 * 6) rgba(0,0,0,0.05);
+  margin-bottom: calc(1rem / 16 * 20);
+}
+
+.post .author {
+  font-size: smaller;
+}
