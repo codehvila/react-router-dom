@@ -4,6 +4,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Posts from "./pages/Posts";
+import Post from "./pages/Post";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           <Route path="/posts" element={<Posts />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+
+          <Route path={`/posts/:postId`} element={<Post />} />
         </Routes>
       </BrowserRouter>
     </div>

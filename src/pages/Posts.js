@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
 import styles from "./Posts.module.css";
@@ -20,6 +21,9 @@ export default function Posts() {
             <h3>{article.title}</h3>
             <p>
               <span className={styles.author}>{article.author}</span>
+            </p>
+            <p>
+              <Link to={`/posts/${article.id}`}>Read more...</Link>
             </p>
           </div>
         ))}
