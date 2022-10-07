@@ -1,4 +1,10 @@
-import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  NavLink,
+  Navigate,
+} from "react-router-dom";
 import "./App.css";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -27,6 +33,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
 
           <Route path={`/posts/:postId`} element={<Post />} />
+
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </BrowserRouter>
     </div>
