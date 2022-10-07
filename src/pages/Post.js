@@ -1,15 +1,25 @@
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import styles from "./Post.module.css";
 
 export default function Post() {
   const { postId } = useParams();
+  const navigate = useNavigate();
 
   const {
     data: article,
     isPending,
     error,
   } = useFetch(`http://localhost:3005/articles/${postId}`);
+
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        navigate("/posts");
+      }, 3000);
+    }
+  }, [error, navigate]);
 
   return (
     <div className={styles.post}>
