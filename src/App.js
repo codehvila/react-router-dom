@@ -32,7 +32,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
 
-          <Route path={`/posts/:postId`} element={<Post />} />
+          <Route path="/posts/:postId" element={<Post />} />
 
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
